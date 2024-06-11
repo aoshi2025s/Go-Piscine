@@ -1,16 +1,19 @@
 package piscine
 
-import "syscall"
+import "ft"
 
 func PrintComb2() {
-	fd := syscall.Stdout
 	for i := 0; i <= 98; i++ {
 		for j := i + 1; j <= 99; j++ {
-			syscall.Write(fd, []byte{byte(i/10+'0'), byte(i%10+'0'), ' ', byte(j/10+'0'), byte(j%10+'0')})
+			ft.PrintRune(rune(i / 10) + '0')
+			ft.PrintRune(rune(i % 10) + '0')
+			ft.PrintRune(' ')
+			ft.PrintRune(rune(j / 10) + '0')
+			ft.PrintRune(rune(j % 10) + '0')
 			if i != 98 {
-				syscall.Write(fd, []byte(", "))
+				ft.PrintRune(',')
 			}
 		}
 	}
-	syscall.Write(fd, []byte("\n"))
+	ft.PrintRune('\n')
 }

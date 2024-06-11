@@ -1,8 +1,10 @@
 package piscine
 
-import "syscall"
+import "ft"
 
 func PrintAlp() {
-	fd := syscall.Stdout
-	syscall.Write(fd, []byte("abcdefghijklmnopqrstuvwxyg\n"))
+	for r := 'a'; r <= 'z'; r++ {
+		ft.PrintRune(r)
+	}
+	ft.PrintRune('\n')
 }

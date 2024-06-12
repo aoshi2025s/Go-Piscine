@@ -1,27 +1,24 @@
 package piscine
 
-import "syscall"
+import "ft"
 
 func PrintCombN(n int) {
 	if n <= 0 || n >= 10 {
 		return
 	}
-	fd := syscall.Stdout
-	combs := make([]int, n)
-	for i := 0; i < n; i++ {
-		combs[i] = i
-	}
-	printCombRecursive(fd, combs, n, 0)
-	syscall.Write(fd, []byte("\n"))
+	var combs [10]int
+	printCombR(combs[:n], n, 0)
+	ft.PrintRune('\n')
 }
 
-func printCombRecursive(fd int, combs []int, n int, index int) {
+func printCombR(combs []int, n int, index int) {
 	if index == n {
 		for i := 0; i < n; i++ {
-			syscall.Write(fd, []byte{byte(combs[i] + '0')})
+			ft.PrintRune(rune(combs[i]) + '0')
 		}
 		if combs[0] != 10-n {
-			syscall.Write(fd, []byte(", "))
+			ft.PrintRune(',')
+			ft.PrintRune(' ')
 		}
 		return
 	}
@@ -29,8 +26,8 @@ func printCombRecursive(fd int, combs []int, n int, index int) {
 	if index > 0 {
 		start = combs[index-1] + 1
 	}
-	for i := start; i <= 9-(n-index); i++ {
+	for i := start; i <= 10-(n-index); i++ {
 		combs[index] = i
-		printCombRecursive(fd, combs, n, index+1)
+		printCombR(combs, n, index+1)
 	}
 }

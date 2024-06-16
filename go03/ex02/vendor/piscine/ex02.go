@@ -2,12 +2,12 @@ package piscine
 
 func LastRune(s string) rune {
 	runes := []rune(s)
-	return runes[rLen(runes) - 1]
+	return runes[strLen(runes) - 1]
 }
 
-func rLen(r []rune) int {
+func strLen(runes []rune) int {
 	c := 0
-	for range r {
+	for range runes {
 		c++
 	}
 	return c 

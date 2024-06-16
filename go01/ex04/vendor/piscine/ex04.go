@@ -3,7 +3,8 @@ package piscine
 import "ft"
 
 func PrintStr(s string) {
-	for _, c := range s {
+	runes := []rune(s)
+	for _, c := range runes {
 		ft.PrintRune(c)
 	}
 }

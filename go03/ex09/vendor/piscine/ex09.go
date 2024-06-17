@@ -2,12 +2,8 @@ package piscine
 
 func IsNumeric(s string) bool {
 	runes := []rune(s)
-	for r := range runes {
-		if runes[r] >= '0' && runes[r] <= '9' {
-			continue
-		} else if runes[r] == ' ' {
-			continue
-		} else {
+	for i := range runes {
+		if runes[i] < '0' || runes[i] > '9' {
 			return false
 		}
 	}

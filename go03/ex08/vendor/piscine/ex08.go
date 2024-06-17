@@ -7,8 +7,6 @@ func IsAlpha(s string) bool {
 			continue
 		} else if runes[i] >= 'a' && runes[i] <= 'z' {
 			continue
-		} else if runes[i] == ' ' {
-			continue
 		} else if runes[i] >= '0' && runes[i] <= '9' {
 			continue
 		} else {

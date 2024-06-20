@@ -1,7 +1,14 @@
 package main
 
-import "piscine"
+import (
+	"piscine"
+	"os"
+)
+
+// go build . -> ./ex00
+// go build -o main -> ./main
 
 func main() {
-	ExSampleFunction()
+	programName := os.Args[0]
+	piscine.PrintString(programName)
 }

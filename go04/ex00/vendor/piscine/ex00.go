@@ -1,6 +1,10 @@
 package piscine
 
-import "os"
+import "ft"
 
-func ExSampleFunction(){
+func PrintString(programName string) {
+	for _, r := range programName {
+		ft.PrintRune(r)
+	}
+	ft.PrintRune('\n')
 }

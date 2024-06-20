@@ -1,7 +1,14 @@
 package main
 
-import "piscine"
+import (
+	"piscine"
+	"os"
+)
+
+// go mod init ex01
+// go run . norminette is the best cat
 
 func main() {
-	ExSampleFunction()
+	params := os.Args
+	piscine.PrintReverseParams(params[1:])
 }

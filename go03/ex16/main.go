@@ -14,6 +14,8 @@ func main() {
 	ft.PrintRune('\n')
 	piscine.PrintNbrBase(-125, "choumi") // -uoi
 	ft.PrintRune('\n')
-	piscine.PrintNbrBase(125, "aa") // NV (????)
+	piscine.PrintNbrBase(125, "aa") // NV (Not Valid)
+	ft.PrintRune('\n')
+	piscine.PrintNbrBase(0, "0123456789") //0
 	ft.PrintRune('\n')
 }

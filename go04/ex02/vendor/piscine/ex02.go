@@ -2,7 +2,6 @@ package piscine
 
 import "ft"
 
-/*
 func PrintReverseParams(params []string){
 	for i := elemLen(params) - 1; i >= 0; i-- {
 		for _, r := range params[i] {
@@ -19,4 +18,3 @@ func elemLen(elems []string) int {
 	}
 	return c
 }
-*/

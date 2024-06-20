@@ -6,15 +6,15 @@ import (
 )
 
 func main() {
-	piscine.PrintNbrBase(125, "0123456789") // 125
+	piscine.PrintNbrBase(125, "0123456789") //125
 	ft.PrintRune('\n')
-	piscine.PrintNbrBase(-125, "01") // -1111101
+	piscine.PrintNbrBase(-125, "01") //-1111101
 	ft.PrintRune('\n')
-	piscine.PrintNbrBase(125, "0123456789ABCDEF") // 7D
+	piscine.PrintNbrBase(125, "0123456789ABCDEF") //7D
 	ft.PrintRune('\n')
-	piscine.PrintNbrBase(-125, "choumi") // -uoi
+	piscine.PrintNbrBase(-125, "choumi") //-uoi
 	ft.PrintRune('\n')
-	piscine.PrintNbrBase(125, "aa") // NV (Not Valid)
+	piscine.PrintNbrBase(125, "aa") //NV (Not Valid)
 	ft.PrintRune('\n')
 	piscine.PrintNbrBase(0, "0123456789") //0
 	ft.PrintRune('\n')

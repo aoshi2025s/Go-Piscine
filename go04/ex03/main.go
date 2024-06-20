@@ -1,7 +1,11 @@
 package main
 
-import "piscine"
+import (
+	"piscine"
+	"os"
+)
 
 func main() {
-	ExSampleFunction()
+	params := os.Args
+	piscine.PrintSortedParams(params[1:])
 }

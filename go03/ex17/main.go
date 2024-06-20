@@ -5,10 +5,12 @@ import (
 	"piscine"
 )
 
+// Only valid string numbers will be tested.
+
 func main() {
-	fmt.Println(piscine.AtoiBase("125", "0123456789"))
-	fmt.Println(piscine.AtoiBase("1111101", "01"))
-	fmt.Println(piscine.AtoiBase("7D", "0123456789ABCDEF"))
-	fmt.Println(piscine.AtoiBase("uoi", "choumi"))
-	fmt.Println(piscine.AtoiBase("bbbbbab", "ab"))
+	fmt.Println(piscine.AtoiBase("125", "0123456789")) //125
+	fmt.Println(piscine.AtoiBase("1111101", "01")) //125
+	fmt.Println(piscine.AtoiBase("7D", "0123456789ABCDEF")) //125
+	fmt.Println(piscine.AtoiBase("uoi", "choumi")) //125
+	fmt.Println(piscine.AtoiBase("bbbbbab", "-ab")) //0
 }

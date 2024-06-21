@@ -6,12 +6,22 @@ import (
 	"ft"
 )
 
-// even関数とEvenMsgとOddMsgとbooleanとyes,noのマクロ定義？が必要そう
+type boolean int
+
+const (
+	yes boolean = 1
+	no boolean = 0
+)
+
+const (
+	EvenMsg = "I have an even number of arguments"
+	OddMsg = "I have an odd number of arguments"
+)
 
 func main() {
-	params := os.Arg
-	lengthOfArg := piscine.CountArg(params)
-	if isEven(lengthOfArg) == {
+	params := os.Args
+	lengthOfArg := piscine.CountArg(params) - 1
+	if isEven(lengthOfArg) == 1 {
 		printStr(EvenMsg)
 	} else {
 		printStr(OddMsg)
@@ -25,6 +35,13 @@ func printStr(s string) {
 	ft.PrintRune('\n')
 }
 
+func even(nbr int) int {
+	if nbr % 2 == 0 {
+		return 1
+	}
+	return 0
+}
+
 func isEven(nbr int) boolean {
 	if even(nbr) == 1 {
 		return yes
@@ -32,5 +49,3 @@ func isEven(nbr int) boolean {
 		return no
 	}
 }
-
-// The necessary change must be applied for the program to work.

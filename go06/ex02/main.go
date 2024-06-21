@@ -14,6 +14,6 @@ func main() {
 		piscine.PrintStr("File name missing\n")
 		return
 	}
-	piscine.DisplayFile(params[0])
+	piscine.DisplayFile(params[1])
 }
 

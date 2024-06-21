@@ -1,12 +1,11 @@
 package main
 
-import (
-	"fmt"
-	"piscine"
-)
+import "fmt"
 
-// 構造体のマクロ定義が必要そう?
-// point型
+type point struct {
+	x int
+	y int
+}
 
 func main() {
 	points := &point{}

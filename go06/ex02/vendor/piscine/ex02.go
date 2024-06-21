@@ -1,16 +1,26 @@
 package piscine
 
-import "ft"
+import (
+	"ft"
+	"os"
+)
 
 func DisplayFile(fileName string) {
-
+	content, err := os.ReadFile(fileName)
+	if err != nil {
+		PrintStr("Some error occured\n")
+		return
+	}
+	PrintStr(string(content))
 }
 
 func PrintStr(str string) {
-
+	for _, r := range str {
+		ft.PrintRune(r)
+	}
 }
 
-func CountArg(params []string) {
+func CountArg(params []string) int {
 	c := 0
 	for range params {
 		c++

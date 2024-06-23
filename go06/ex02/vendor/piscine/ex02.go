@@ -8,7 +8,7 @@ import (
 func DisplayFile(fileName string) {
 	content, err := os.ReadFile(fileName)
 	if err != nil {
-		PrintStr("Some error occured\n")
+		PrintStr("ERROR: " + err.Error() + "\n")
 		return
 	}
 	PrintStr(string(content))

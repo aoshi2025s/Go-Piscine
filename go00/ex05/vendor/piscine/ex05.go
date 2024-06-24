@@ -12,6 +12,7 @@ func PrintComb2() {
 			ft.PrintRune(rune(j % 10) + '0')
 			if i != 98 {
 				ft.PrintRune(',')
+				ft.PrintRune(' ')
 			}
 		}
 	}

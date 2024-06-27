@@ -9,7 +9,10 @@ func main() {
 	
 	link := &piscine.List{}
 
-	piscine.List(link, "Hello")
-	piscine.List(link, "there")
-	piscine.List(link, "how are you")
+	piscine.ListPushFront(link, "Hello")
+	piscine.ListPushFront(link, "2")
+	piscine.ListPushFront(link, "you")
+	piscine.ListPushFront(link, "man")
+
+	fmt.Println(piscine.ListSize(link))
 }

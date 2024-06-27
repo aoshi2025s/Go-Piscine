@@ -1,29 +1,21 @@
 package piscine
 
 func Compare(a, b string) int {
-
-	for i := range a {
-		if i >= strLen(b) {
-			return 1
-		}
-		if a[i] != b[i] {
-			if a[i] < b[i] {
-				return -1
-			}
-			return 1
-		}
+	if a > b {
+		return 1
 	}
-	if strLen(a) < strLen(b) {
+	if a < b {
 		return -1
 	}
 	return 0
 }
 
-func strLen(s string) int {
-	c := 0
-	for range s {
-		c++
-	}
-	return c
-}
+/*
+The Compare function can return three values (all of them type int):
+
+0 is returned when the first string equals the second string (a==b).
++1 is returned when the first string is Lexicographically greater than the second string (a>b).
+-1 is returned when the first string is Lexicographically smaller than the second string (a<b).
+*/
+
 

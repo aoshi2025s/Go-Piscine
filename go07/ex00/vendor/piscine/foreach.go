@@ -10,6 +10,31 @@ func ForEach(f func(int), a []int) {
 	}
 }
 
+func PrintNbr(n int) {
+	if n < 0 {
+		if n  == -(1 << 31) {
+			PrintStr("-2147483648")
+			return
+		} else if n == -(1 << 63) {
+			PrintStr("-9223372036854775808")
+			return
+		} else {
+			ft.PrintRune('-')
+			n = -n
+		}
+	}
+	if n >= 10 {
+		PrintNbr(n / 10)
+	}
+	ft.PrintRune(rune(n % 10 + '0'))
+}
+
+func PrintStr(s string) {
+	for _, r := range s {
+		ft.PrintRune(r)
+	}
+}
+
 /*
 func PrintNbr(n int) {
 	result := ""
@@ -29,13 +54,4 @@ func PrintNbr(n int) {
 }
 */
 
-func PrintNbr(n int) {
-	if n < 0 {
-		ft.PrintRune('-')
-		n = -n
-	}
-	if n >= 10 {
-		PrintNbr(n / 10)
-	}
-	ft.PrintRune(rune(n % 10 + '0'))
-}
+

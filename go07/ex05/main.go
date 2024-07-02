@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	//test()
+	test()
 
 	args := os.Args
 	params := args[1:]
@@ -91,6 +91,13 @@ func test() {
 		fmt.Println(success + "+ operator overflow test ok" + reset)
 	} else {
 		fmt.Println(failure + "+ operator overflow test failed" + reset)
+	}
+	
+	result, err = piscine.CalcuDoop(9223372036854775807, -2, "-")
+	if !err {
+		fmt.Println(success + "- operator overflow test ok" + reset)
+	} else {
+		fmt.Println(failure + "- operator overflow test failed" + reset)
 	}
 
 	result, err = piscine.CalcuDoop(-9223372036854775807, 3, "-")

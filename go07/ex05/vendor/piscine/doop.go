@@ -37,7 +37,9 @@ func CalcuDoop(v1, v2 int, op string) (int, bool) {
 func Atoi(s string) (int, bool) {
 	result := 0
 	minus := 1
-
+	
+	// https://github.com/aoshi2025s/Go-Piscine/issue/8
+	// string と runeを比較しない
 	if s[0] == '-' {
 		minus = -1
 		s = s[1:]
@@ -76,6 +78,20 @@ func getMinInt() int {
 func IsOverFlow(n, p int) bool {
 	maxInt := getMaxInt()
 	minInt := getMinInt()
+	
+	// n * 10  + p > maxInt
+	// n * 10 > maxInt - p
+	// n > (maxInt - p) / 10
+	
+	// 下記だと現状ダメっぽい。
+	/*
+	if n > (maxInt - p) / 10 {
+		return true
+	}
+	if n < (minInt - p) / 10 {
+		return true
+	}
+	*/
 
 	if n > maxInt / 10 {
 		return true

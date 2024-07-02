@@ -81,9 +81,23 @@ func test() {
 
 	result, err = piscine.Atoi("9223372036854775807")
 	if err && result == 9223372036854775807 {
-		fmt.Println(success + "Atoi function test ok" + reset)
+		fmt.Println(success + "Atoi overflow test ok" + reset)
 	} else {
-		fmt.Println(failure + "Atoi function test failed" + reset)
+		fmt.Println(failure + "Atoi overflow test failed" + reset)
+	}
+
+	result, err = piscine.Atoi("9223372036854775808")
+	if !err {
+		fmt.Println(success + "Atoi overflow test ok" + reset)
+	} else {
+		fmt.Println(failure + "Atoi overflow test failed" + reset)
+	}
+
+	result, err = piscine.Atoi("-9223372036854775808")
+	if err && result == -9223372036854775808 {
+		fmt.Println(success + "Atoi overflow test ok" + reset)
+	} else {
+		fmt.Println(failure + "Atoi overflow test failed" + reset)
 	}
 
 	result, err = piscine.CalcuDoop(9223372036854775807, 1, "+")

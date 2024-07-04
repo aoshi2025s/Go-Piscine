@@ -1,5 +1,10 @@
 package piscine
 
+const (
+	maxInt = int(^uint(0) >> 1)
+	minInt = -int(^uint(0) >> 1) - 1
+)
+
 func CalcuDoop(v1, v2 int, op string) (int, bool) {
 	if op[0] == '+' {
 		if isSafeAdd(v1, v2) == false {
@@ -8,7 +13,10 @@ func CalcuDoop(v1, v2 int, op string) (int, bool) {
 		return v1 + v2, true
 	}
 	if op[0] == '-' {
-		if v1 < getMinInt() + v2 {
+		if v1 < minInt + v2 {
+			return 0, false
+		}
+		if v2 < 0 && v1 > maxInt + v2 {
 			return 0, false
 		}
 		return v1 - v2, true
@@ -38,9 +46,7 @@ func Atoi(s string) (int, bool) {
 	result := 0
 	minus := 1
 	
-	// https://github.com/aoshi2025s/Go-Piscine/issue/8
-	// string と runeを比較しない
-	if s[0] == '-' {
+	if []rune(s)[0] == '-' {
 		minus = -1
 		s = s[1:]
 	}
@@ -54,53 +60,11 @@ func Atoi(s string) (int, bool) {
 	return result * minus, true
 }
 
-func getMaxInt() int {
-	if ^uint(0) >> 32 == 0 {
-		// 32bit
-		return 1 << 31 - 1 // 2147483647
-	} else {
-		// 64bit
-		return 1 << 63 - 1 // 9223372036854775807
-	}
-}
-
-func getMinInt() int {
-	if ^uint(0) >> 32 == 0 {
-		// 32 bit
-		return -1 << 31 //-2147483648
-	} else {
-		// 64 bit
-		return -1 << 63 // -9223372036854775808
-	}
-}
-
-
 func IsOverFlow(n, p int) bool {
-	maxInt := getMaxInt()
-	minInt := getMinInt()
-	
-	// n * 10  + p > maxInt
-	// n * 10 > maxInt - p
-	// n > (maxInt - p) / 10
-	
-	// 下記だと現状ダメっぽい。
-	/*
-	if n > (maxInt - p) / 10 {
+	if n > maxInt || ( n == maxInt / 10 && p > maxInt % 10) {
 		return true
 	}
-	if n < (minInt - p) / 10 {
-		return true
-	}
-	*/
-
-	if n > maxInt / 10 {
-		return true
-	} else if n == maxInt / 10 && p > maxInt % 10 {
-		return true
-	}
-	if n < minInt / 10 {
-		return true
-	} else if n == minInt / 10 && p >  -(minInt % 10) {
+	if n < minInt / 10 || (n == minInt / 10 && p >  -(minInt % 10)) {
 		return true
 	}
 	return false
@@ -135,9 +99,6 @@ func isDoop(s string) bool {
 }
 
 func isSafeAdd(v1, v2 int) bool {
-	maxInt := getMaxInt()
-	minInt := getMinInt()
-
 	if v1 > 0 && v2 > 0 && v2 > maxInt - v1 {
 		return false
 	}
@@ -148,9 +109,6 @@ func isSafeAdd(v1, v2 int) bool {
 }
 
 func isSafeMultiply(v1, v2 int) bool {
-	maxInt := getMaxInt()
-	minInt := getMinInt()
-	
 	// INT_MIN * (-1)
 	if (v1 == minInt && v2 == -1) || (v2 == minInt && v1 == -1) {
 		return false
@@ -171,8 +129,6 @@ func isSafeMultiply(v1, v2 int) bool {
 }
 
 func isSafeDivide(v1, v2 int) bool {
-	minInt := getMinInt()
-
 	if v2 == 0 {
 		return false
 	}

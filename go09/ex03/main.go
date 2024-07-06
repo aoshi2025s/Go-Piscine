@@ -6,10 +6,13 @@ import (
 )
 
 func main() {
-	
 	link := &piscine.List{}
+	link2 := &piscine.List{}
 
-	piscine.List(link, "Hello")
-	piscine.List(link, "there")
-	piscine.List(link, "how are you")
+	piscine.ListPushBack(link, "three")
+	piscine.ListPushBack(link, 3)
+	piscine.ListPushBack(link, "1")
+
+	fmt.Println(piscine.ListLast(link)) // 1
+	fmt.Println(piscine.ListLast(link2)) // <nil>
 }

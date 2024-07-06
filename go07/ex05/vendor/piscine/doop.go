@@ -70,7 +70,6 @@ func IsOverFlow(n, p int) bool {
 	return false
 }
 
-
 func IsValidInput(params []string) bool {
 	if elemLen(params) != 3 {
 		return false

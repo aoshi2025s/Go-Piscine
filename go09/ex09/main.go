@@ -9,7 +9,13 @@ func main() {
 	
 	link := &piscine.List{}
 
-	piscine.List(link, "Hello")
-	piscine.List(link, "there")
-	piscine.List(link, "how are you")
+	piscine.ListPushBack(link, "hello")
+	piscine.ListPushBack(link, "hello1")
+	piscine.ListPushBack(link, "hello2")
+	piscine.ListPushBack(link, "hello3")
+
+	found := piscine.ListFind(link, interface{}("hello2"), piscine.CompStr)
+
+	fmt.Println(found)
+	fmt.Println(*found)
 }

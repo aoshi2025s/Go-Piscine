@@ -5,11 +5,41 @@ import (
 	"piscine"
 )
 
+func PrintList(l *piscine.NodeI) {
+	it := l
+	for it != nil {
+		fmt.Print(it.Data, " -> ")
+		it = it.Next
+	}
+	fmt.Print(nil, "\n")
+}
+
+func listPushBack(l *piscine.NodeI, data int) *piscine.NodeI {
+	n := &piscine.NodeI{Data: data}
+
+	if l == nil {
+		return n
+	}
+	it := l
+	for it.Next != nil {
+		it = it.Next
+	}
+	it.Next = n
+	return l
+}
+
 func main() {
 	
-	link := &piscine.List{}
+	var link *piscine.NodeI
+	
+	link = listPushBack(link, 1)
+	link = listPushBack(link, 4)
+	link = listPushBack(link, 9)
 
-	piscine.List(link, "Hello")
-	piscine.List(link, "there")
-	piscine.List(link, "how are you")
+	PrintList(link)
+
+	link = piscine.SortListInsert(link, -2)
+	link = piscine.SortListInsert(link, 2)
+
+	PrintList(link)
 }

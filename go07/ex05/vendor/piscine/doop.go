@@ -61,6 +61,17 @@ func Atoi(s string) (int, bool) {
 }
 
 func IsOverFlow(n, p int) bool {
+	if n > (maxInt - p) / 10 {
+		return true
+	}
+	if n < (minInt + p) / 10 {
+		return true
+	}
+	return false
+}
+
+/*
+func IsOverFlow(n, p int) bool {
 	if n > maxInt || ( n == maxInt / 10 && p > maxInt % 10) {
 		return true
 	}
@@ -69,6 +80,7 @@ func IsOverFlow(n, p int) bool {
 	}
 	return false
 }
+*/
 
 func IsValidInput(params []string) bool {
 	if elemLen(params) != 3 {

@@ -52,32 +52,14 @@ func main() {
 
 
 	root = &piscine.TreeNode{Data: "1"}
-	piscine.BTreeInsertData(root, "2")
-	piscine.BTreeInsertData(root, "3")
-	piscine.BTreeInsertData(root, "4")
-	piscine.BTreeInsertData(root, "5")
-	piscine.BTreeInsertData(root, "6")
-	piscine.BTreeInsertData(root, "7")
-	piscine.BTreeInsertData(root, "8")
-	piscine.BTreeInsertData(root, "9")
-	piscine.BTreeInsertData(root, "10")
-	piscine.BTreeInsertData(root, "11")
-	piscine.BTreeInsertData(root, "12")
-	piscine.BTreeInsertData(root, "13")
-	piscine.BTreeInsertData(root, "14")
-	piscine.BTreeInsertData(root, "15")
-	piscine.BTreeInsertData(root, "16")
-	piscine.BTreeInsertData(root, "17")
-	piscine.BTreeInsertData(root, "18")
-	piscine.BTreeInsertData(root, "19")
-	piscine.BTreeInsertData(root, "20")
-	piscine.BTreeInsertData(root, "21")
+	values := []string{"4", "5", "3", "1", "2", "8", "7", "6", "9"}
+	for _, v := range values {
+		root = piscine.BTreeInsertData(root, v)
+	}
 	fmt.Printf("%s================================%s\n", pink, reset)
 	VisualizeBTree(root, "", false)
 	fmt.Printf("%s================================%s\n", pink, reset)
 	fmt.Printf("%scount level%s %d\n", blue, reset, piscine.BTreeLevelCount(root))
 	fmt.Printf("%s================================%s\n", pink, reset)
-
-	// TODO: visualize BTree
 }
 

@@ -6,7 +6,8 @@ type TreeNode struct {
 }
 
 // same meaning foreach function
-
+// TODO: 深さ優先探索で実装する
+// 今の状態だと、ただのapplyInPreorder
 func BTreeApplyByLevel(root *TreeNode, f func(...interface{}) (int, error)) {
 	// base case
 	if root == nil {

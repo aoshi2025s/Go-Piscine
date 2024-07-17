@@ -70,18 +70,6 @@ func IsOverFlow(n, p int) bool {
 	return false
 }
 
-/*
-func IsOverFlow(n, p int) bool {
-	if n > maxInt || ( n == maxInt / 10 && p > maxInt % 10) {
-		return true
-	}
-	if n < minInt / 10 || (n == minInt / 10 && p >  -(minInt % 10)) {
-		return true
-	}
-	return false
-}
-*/
-
 func IsValidInput(params []string) bool {
 	if elemLen(params) != 3 {
 		return false
@@ -89,13 +77,13 @@ func IsValidInput(params []string) bool {
 	if isDigit(params[0]) == false || isDigit(params[2]) == false {
 		return false
 	}
-	if isDoop(params[1]) == false {
+	if isOperator(params[1]) == false {
 		return false
 	}
 	return true
 }
 
-func isDoop(s string) bool {
+func isOperator(s string) bool {
 	if strLen(s) > 1 {
 		return false
 	}
@@ -159,10 +147,11 @@ func strLen(s string) int {
 }
 
 func isDigit(s string) bool {
-	if s[0] == '-' {
-		s = s[1:]
+	runes := []rune(s)
+	if runes[0] == '-' {
+		runes = runes[1:]
 	}
-	for _, r := range s {
+	for _, r := range runes {
 		if r < '0' || r > '9' {
 			return false
 		}
